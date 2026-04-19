@@ -31,7 +31,7 @@ if st.button("Analyze Sentiment"):
         sentiment = result['prediction']
         #confidence = result['confidence']
 
-        if"pos" in sentiment or "neg" in sentiment:
+        if "pos" in sentiment or "neg" in sentiment:
             st.success(f"Sentiment: {sentiment}")
         else:
             st.error(f"entiment: {sentiment}")

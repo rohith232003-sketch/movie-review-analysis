@@ -8,6 +8,16 @@ app = Flask(__name__)
 model = joblib.load('model.joblib')
 vectorizer = joblib.load('tf_idf.joblib')
 
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({
+        'message': 'Sentiment Analysis API is running!',
+        'endpoint': {
+            'health' : 'GET health',
+            'predict' : 'POST /predict'
+        }
+    })
+    
 @app.route("/predict", methods=["POST"])
 def predict():
     try:
